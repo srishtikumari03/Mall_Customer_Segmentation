@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 
 #Train Model
-df_array = np.array([[1, 'Male', 19, 15, 39],
+df_array = [[1, 'Male', 19, 15, 39],
             [2, 'Male', 21, 15, 81],
             [3, 'Female', 20, 16, 6],
             [4, 'Female', 23, 16, 77],
@@ -205,8 +205,10 @@ df_array = np.array([[1, 'Male', 19, 15, 39],
             [197, 'Female', 45, 126, 28],
             [198, 'Male', 32, 126, 74],
             [199, 'Male', 32, 137, 18],
-            [200, 'Male', 30, 137, 83]])
+            [200, 'Male', 30, 137, 83]]
 df = pd.DataFrame(data = df_array, columns= ['CustomerID', 'Gender', 'Age', 'Annual Income (k$)','Spending Score (1-100)'])
+
+
 Xtrain = df.copy()
 dummies = pd.get_dummies(df['Gender'])
 Xtrain[dummies.columns] = dummies
