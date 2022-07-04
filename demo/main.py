@@ -261,7 +261,7 @@ if (operation_predict):
     c = True
     X_test = encode()
     test['Cluster'] = model.predict(X_test)
-    to_show = f"Customer with CustomerID {data['CustomerID']} belongs to cluster {test['Cluster'][0]}, is {cluster_priority[test['Cluster'][0]]} priority customer (category {priority_vs_category[cluster_priority[test['Cluster'][0]]]} customer)."
+    to_show = f"Customer with CustomerID {data['CustomerID']} belongs to cluster {test['Cluster'][0]}, priority {cluster_priority[test['Cluster'][0]]} customer (category {priority_vs_category[cluster_priority[test['Cluster'][0]]]} customer)."
     st.markdown(to_show)
 
 
@@ -269,7 +269,7 @@ if (operation_predict):
 operation_plot = st.button('Plot Clusters')
 if (operation_plot):
     if (c):
-        to_show = f"Customer with CustomerID {data['CustomerID']} belongs to cluster {test['Cluster'][0]}, is {cluster_priority[test['Cluster'][0]]} priority customer (category {priority_vs_category[cluster_priority[test['Cluster'][0]]]} customer)."
+        to_show = f"Customer with CustomerID {data['CustomerID']} belongs to cluster {test['Cluster'][0]}, priority {cluster_priority[test['Cluster'][0]]} customer (category {priority_vs_category[cluster_priority[test['Cluster'][0]]]} customer)."
         st.markdown(to_show)
     #Getting unique labels
     u_labels = final_data['Cluster'].unique()
