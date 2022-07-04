@@ -256,7 +256,9 @@ def encode():
 cluster_priority = {0: 3, 1: 2, 2: 1, 3: 4, 4: 5}
 priority_vs_category = {1: 'A', 2: 'B', 3: 'C', 4: 'D', 5: 'E'}
 
+c = False
 if (operation_predict):
+    c = True
     X_test = encode()
     test['Cluster'] = model.predict(X_test)
     to_show = f"Customer with CustomerID {data['CustomerID']} belongs to cluster {test['Cluster'][0]}, is {cluster_priority[test['Cluster'][0]]} priority customer (category {priority_vs_category[cluster_priority[test['Cluster'][0]]]} customer)."
@@ -266,7 +268,7 @@ if (operation_predict):
 #Plot Data
 operation_plot = st.button('Plot Clusters')
 if (operation_plot):
-    if (operation_predict):
+    if (c):
         to_show = f"Customer with CustomerID {data['CustomerID']} belongs to cluster {test['Cluster'][0]}, is {cluster_priority[test['Cluster'][0]]} priority customer (category {priority_vs_category[cluster_priority[test['Cluster'][0]]]} customer)."
         st.markdown(to_show)
     #Getting unique labels
