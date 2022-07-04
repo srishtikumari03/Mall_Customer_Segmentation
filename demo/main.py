@@ -266,8 +266,9 @@ if (operation_predict):
 #Plot Data
 operation_plot = st.button('Plot Clusters')
 if (operation_plot):
-    to_show = f"Customer with CustomerID {data['CustomerID']} belongs to cluster {test['Cluster'][0]}, is {cluster_priority[test['Cluster'][0]]} priority customer (category {priority_vs_category[cluster_priority[test['Cluster'][0]]]} customer)."
-    st.markdown(to_show)
+    if (operation_predict):
+        to_show = f"Customer with CustomerID {data['CustomerID']} belongs to cluster {test['Cluster'][0]}, is {cluster_priority[test['Cluster'][0]]} priority customer (category {priority_vs_category[cluster_priority[test['Cluster'][0]]]} customer)."
+        st.markdown(to_show)
     #Getting unique labels
     u_labels = final_data['Cluster'].unique()
     fig = plt.figure()
